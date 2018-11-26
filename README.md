@@ -1,13 +1,3 @@
-# Output da terceira questão
-```sql
-CREATE VIEW dias_acima_de_um_porcento as  
-SELECT erros.dia, erros.erros  
-FROM erros, threshold  
-WHERE erros.dia = threshold.dia  
- AND erros.erros > threshold.um_porcento_do_dia  
-ORDER BY erros.dia desc;
-```
-
 # erros
 ```sql
  CREATE VIEW erros AS  
@@ -34,3 +24,13 @@ SELECT total.dia as dia, (total.total / 100) as um_porcento_do_dia
 FROM total  
 ORDER BY um_porcento_do_dia desc;
 ```  
+
+# Output da terceira questão
+```sql
+CREATE VIEW dias_acima_de_um_porcento as  
+SELECT erros.dia, erros.erros  
+FROM erros, threshold  
+WHERE erros.dia = threshold.dia  
+ AND erros.erros > threshold.um_porcento_do_dia  
+ORDER BY erros.dia desc;
+```
