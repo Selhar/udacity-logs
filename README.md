@@ -7,12 +7,12 @@ WHERE erros.dia = threshold.dia
 ORDER BY erros.dia desc;`  
 
 # erros
-` CREATE VIEW erros AS  
+``` CREATE VIEW erros AS  
  SELECT date(time) as dia, count(*) as erros  
  FROM log  
  WHERE status NOT LIKE '200%'  
  GROUP BY dia  
- ORDER BY erros desc;`  
+ ORDER BY erros desc;```  
 
 # total
 ` CREATE VIEW total AS  
