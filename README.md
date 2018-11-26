@@ -1,4 +1,4 @@
-# erros
+# Views
 ```sql
  CREATE VIEW erros AS  
  SELECT date(time) as dia, count(*) as erros  
@@ -8,7 +8,6 @@
  ORDER BY erros desc;
  ```  
 
-# total
 ```sql
  CREATE VIEW total AS  
  SELECT date(time) as dia, count(*) as total  
@@ -17,7 +16,6 @@
  ORDER BY total desc;
  ```  
 
-# % por dia
 ```sql
 CREATE VIEW threshold AS  
 SELECT total.dia as dia, (total.total / 100) as um_porcento_do_dia  
@@ -25,7 +23,6 @@ FROM total
 ORDER BY um_porcento_do_dia desc;
 ```  
 
-# Output da terceira questão
 ```sql
 CREATE VIEW dias_acima_de_um_porcento as  
 SELECT erros.dia, erros.erros  

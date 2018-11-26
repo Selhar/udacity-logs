@@ -28,4 +28,8 @@ dias_com_erros_altos = """
     SELECT * from dias_acima_de_um_porcento;
 """
 
+output = open("relatorio.txt", "w")
+
 print(retorna_query(dias_com_erros_altos));
+output.write("teste")
+output.close()
