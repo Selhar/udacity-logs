@@ -32,8 +32,8 @@ def gera_relatorio():
 
   queries = [artigos_mais_populares, autores_mais_populares, dias_com_erros_altos]
   output = open("relatorio.txt", "w")
-  for query in queries
-    output.write("teste\n")
+  for query in queries:
+    output.write(retorna_query(query))
   output.close()
 
 gera_relatorio()
