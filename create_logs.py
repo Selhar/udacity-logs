@@ -4,7 +4,7 @@ import time
 
 def retorna_query(query):
     con = psycopg2.connect("dbname=news")
-    c = db.cursor()
+    c = con.cursor()
     c.execute(query)
     return c.fetchall()
     con.close()
@@ -25,12 +25,7 @@ autores_mais_populares = """
     GROUP BY title, path, autor
     ORDER BY acessos desc limit 3;"""
 dias_com_erros_altos = """
-    CREATE VIEW dias_acima_de_um_porcento as
-    SELECT erros.dia, erros.erros
-    FROM erros, threshold
-    WHERE erros.dia = threshold.dia
-    AND erros.erros > threshold.um_porcento_do_dia
-    ORDER BY erros.dia desc;
+    SELECT * from dias_acima_de_um_porcento;
 """
 
-retorna_query(dias_com_erros_altos);
+print(retorna_query(dias_com_erros_altos));
