@@ -1,17 +1,18 @@
 #! /usr/bin/env
+
 import psycopg2
 import time
 
 def retorna_query(query):
-    con = psycopg2.connect("dbname=news")
-    c = con.cursor()
-    c.execute(query)
-    return c.fetchall()
-    con.close()
+  con = psycopg2.connect("dbname=news")
+  c = con.cursor()
+  c.execute(query)
+  return c.fetchall()
+  con.close()
 
-def gera_relatorio()
+def gera_relatorio():
   artigos_mais_populares = """
-    SELECT title as artigo, count(*) AS acessos
+    SELECT title as artigo, count( * ) AS acessos
     FROM log, articles
     WHERE replace(log.path, '/article/', '') = articles.slug
     AND log.status LIKE '200%'
@@ -19,7 +20,7 @@ def gera_relatorio()
     ORDER BY acessos desc limit 3;"""
 
   autores_mais_populares = """
-    SELECT name as autor, title as artigo, count(*) AS acessos
+    SELECT name as autor, title as artigo, count( * ) AS acessos
     FROM log, articles, authors
     WHERE articles.author = authors.id
     AND replace(log.path, '/article/', '') = articles.slug
